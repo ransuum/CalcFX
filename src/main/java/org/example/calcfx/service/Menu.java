@@ -1,11 +1,13 @@
 package org.example.calcfx.service;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Menu {
     private List<Object> afterEqual = new ArrayList<Object>();
     private List<Object> beforeEqual = new ArrayList<Object>();
+    private LinkedList<Double> result = new LinkedList<>();
     private String function;
 
     public Menu(String function) {
@@ -38,5 +40,13 @@ public abstract class Menu {
 
     public void setFunction(String function) {
         this.function = function;
+    }
+
+    public LinkedList<Double> getResult() {
+        return result;
+    }
+
+    public void setResult(LinkedList<Double> result) {
+        this.result = result;
     }
 }

@@ -1,6 +1,8 @@
 package org.example.calcfx.service;
 
-public class HelperService extends Menu{
+import java.util.LinkedList;
+
+public class HelperService extends Menu {
 
     public HelperService(String function) {
         super(function);
