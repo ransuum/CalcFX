@@ -72,7 +72,11 @@ public class HelperService extends Menu {
             xRes -= i;
         }
 
-        return (double) res / xRes;
+        double answer = (double) res / xRes;
+
+        if (answer > 0 && (answer - (int) answer) > 0.7) return (int) answer + 1;
+        else return (int) answer;
+
     }
 
     private void findDigits(String function, Equal equal) {
