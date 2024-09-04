@@ -105,7 +105,8 @@ public class HelperService extends Menu {
 //        }
         Matcher matcher = Pattern.compile("(-?\\d+)(?!x)").matcher(function);
         while (matcher.find()) {
-            int number = Integer.parseInt(matcher.group(1));
+            String kef = matcher.group(1);
+            int number = Integer.parseInt(kef);
             if (equal == Equal.BEFORE) {
                 getBeforeEqual().add(number);
             } else {
