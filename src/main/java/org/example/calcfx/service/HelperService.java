@@ -2,7 +2,8 @@ package org.example.calcfx.service;
 
 import org.example.calcfx.enums.Equal;
 
-import java.util.LinkedList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HelperService extends Menu {
 
@@ -75,56 +76,75 @@ public class HelperService extends Menu {
     }
 
     private void findDigits(String function, Equal equal) {
-        char[] characters = function.toCharArray();
-
-        for (int i = 0; i < characters.length; i++) {
-            if (Character.isDigit(characters[i]) ||
-                    (characters[i] == '-' && i + 1 < characters.length && Character.isDigit(characters[i + 1]))) {
-
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(characters[i]);
-
-                while (i + 1 < characters.length && Character.isDigit(characters[i + 1])) {
-                    i++;
-                    stringBuilder.append(characters[i]);
-                }
-
-                int number = Integer.parseInt(stringBuilder.toString());
-
-                if (equal == Equal.BEFORE) {
-                    getBeforeEqual().add(number);
-                } else {
-                    getAfterEqual().add(number);
-                }
+//        char[] characters = function.toCharArray();
+//
+//        for (int i = 0; i < characters.length; i++) {
+//            if (Character.isDigit(characters[i]) ||
+//                    (characters[i] == '-' && i + 1 < characters.length && Character.isDigit(characters[i + 1]))) {
+//
+//                StringBuilder stringBuilder = new StringBuilder();
+//                stringBuilder.append(characters[i]);
+//
+//                while (i + 1 < characters.length && Character.isDigit(characters[i + 1])) {
+//                    i++;
+//                    stringBuilder.append(characters[i]);
+//                }
+//
+//                int number = Integer.parseInt(stringBuilder.toString());
+//
+//                if (equal == Equal.BEFORE) {
+//                    getBeforeEqual().add(number);
+//                } else {
+//                    getAfterEqual().add(number);
+//                }
+//            }
+//        }
+        Matcher matcher = Pattern.compile("(-?\\d+)(?!x)").matcher(function);
+        while (matcher.find()) {
+            int number = Integer.parseInt(matcher.group(1));
+            if (equal == Equal.BEFORE) {
+                getBeforeEqual().add(number);
+            } else {
+                getAfterEqual().add(number);
             }
         }
     }
 
     private void findX(String function, Equal equal) {
-        char[] characters = function.toCharArray();
+//        char[] characters = function.toCharArray();
+//
+//        for (int i = 0; i < characters.length; i++) {
+//            StringBuilder stringBuilder = new StringBuilder();
+//
+//            if (characters[i] == 'x'
+//                    || (characters[i] == '-' && i + 1 < characters.length && characters[i + 1] == 'x')) {
+//                if (characters[i] == 'x') stringBuilder.append("1");
+//                else stringBuilder.append(characters[i]);
+//
+//                while (i + 1 < characters.length && characters[i + 1] == 'x') {
+//                    i++;
+//                    stringBuilder.append("1");
+//                }
+//
+//                int number = Integer.parseInt(stringBuilder.toString());
+//
+//                if (!stringBuilder.isEmpty()) {
+//                    if (equal == Equal.BEFORE) {
+//                        getxBeforeEqual().add(number);
+//                    } else {
+//                        getxAfterEqual().add(number);
+//                    }
+//                }
+//            }
 
-        for (int i = 0; i < characters.length; i++) {
-            StringBuilder stringBuilder = new StringBuilder();
-
-            if (characters[i] == 'x'
-                    || (characters[i] == '-' && i + 1 < characters.length && characters[i + 1] == 'x')) {
-                if (characters[i] == 'x') stringBuilder.append("1");
-                else stringBuilder.append(characters[i]);
-
-                while (i + 1 < characters.length && characters[i + 1] == 'x') {
-                    i++;
-                    stringBuilder.append("1");
-                }
-
-                int number = Integer.parseInt(stringBuilder.toString());
-
-                if (!stringBuilder.isEmpty()) {
-                    if (equal == Equal.BEFORE) {
-                        getxBeforeEqual().add(number);
-                    } else {
-                        getxAfterEqual().add(number);
-                    }
-                }
+            Matcher matcher = Pattern.compile("(-?\\d*)x").matcher(function);
+        while (matcher.find()) {
+            String kef = matcher.group(1);
+            int number = kef.isEmpty() ? 1 : (kef.equals("-") ? -1 : Integer.parseInt(kef));
+            if (equal == Equal.BEFORE) {
+                getxBeforeEqual().add(number);
+            } else {
+                getxAfterEqual().add(number);
             }
         }
     }
