@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.calcfx.SolutionController">
+<AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.calcfx.controller.SolutionController">
    <children>
       <TextArea fx:id="output" layoutX="119.0" layoutY="97.0" prefHeight="434.0" prefWidth="562.0">
          <font>

@@ -1,4 +1,4 @@
-package org.example.calcfx;
+package org.example.calcfx.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.example.calcfx.service.HelperService;
-import org.example.calcfx.service.Menu;
 
 import java.io.IOException;
 
@@ -30,7 +28,7 @@ public class CalcController {
 
             if (solutionController == null) {
                 try {
-                    FXMLLoader solutionLoader = new FXMLLoader(getClass().getResource("solution.fxml"));
+                    FXMLLoader solutionLoader = new FXMLLoader(getClass().getResource("/org/example/calcfx/solution.fxml"));
                     Parent parent = solutionLoader.load();
                     solutionController = solutionLoader.getController();
 

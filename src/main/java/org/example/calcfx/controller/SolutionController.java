@@ -1,13 +1,12 @@
-package org.example.calcfx;
+package org.example.calcfx.controller;
 
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import org.example.calcfx.service.HelperService;
-import org.example.calcfx.service.Menu;
+import org.example.calcfx.main.Menu;
 
 public class SolutionController {
 

@@ -1,4 +1,4 @@
-package org.example.calcfx.service;
+package org.example.calcfx.main;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

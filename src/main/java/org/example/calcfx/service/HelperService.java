@@ -1,6 +1,7 @@
 package org.example.calcfx.service;
 
 import org.example.calcfx.enums.Equal;
+import org.example.calcfx.main.Menu;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
